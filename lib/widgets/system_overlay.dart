@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/widgets.dart';
-
+import 'dart:ui';
 import 'animated_content_builder.dart';
 
 /// An overlay which animates its content and dismisses it if a click occurs
@@ -66,10 +66,10 @@ class SystemOverlayState extends State<SystemOverlay>
   Widget build(BuildContext context) => new AnimatedBuilder(
         animation: _animation,
         builder: (BuildContext context, Widget child) => new Offstage(
-              // Only display this overlay if it is actually visible.
-              offstage: _animation.isDismissed,
-              child: child,
-            ),
+          // Only display this overlay if it is actually visible.
+          offstage: _animation.isDismissed,
+          child: child,
+        ),
         child: new Stack(
           fit: StackFit.passthrough,
           children: <Widget>[

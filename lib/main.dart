@@ -15,6 +15,7 @@ limitations under the License.
 */
 
 import 'dart:io';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:GeneratedApp/applications/calculator.dart';
 import 'package:GeneratedApp/applications/editor.dart';
@@ -28,6 +29,9 @@ import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:path_provider/path_provider.dart';
 
+import 'applications/browser/main.dart';
+import 'applications/editor.dart';
+import 'applications/files/main.dart';
 import 'quick_settings.dart';
 import 'window_space.dart';
 //import 'dart:async';
@@ -231,7 +235,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage("lib/images/Desktop/Dahlia/mountain.jpg"),
+              image: AssetImage("lib/images/Desktop/Dahlia/windows.jpg"),
               fit: BoxFit.cover,
             ),
           ),
@@ -336,12 +340,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       //color: Color.fromARGB(150, 0, 0, 0),
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(150, 0, 0, 0),
+                        color: Colors.white.withOpacity(0.85),
                         //uncomment below to add radius to the launcher panel
                         //borderRadius: BorderRadius.circular(100),
                       ),
-                      height: 50.0,
-                      padding: const EdgeInsets.all(8.0),
+                      height: 40.0,
+                      //padding: const EdgeInsets.all(8.0),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -356,48 +360,58 @@ class _MyHomePageState extends State<MyHomePage> {
                                   callback: toggleCallback,
                                 ),
                                 AppLauncherPanelButton(
-                                  app: Calculator(),
+                                  app: Browser(),
+                                  icon: 'lib/images/icons/v2/compiled/web.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
+                                AppLauncherPanelButton(
+                                  app: Files(),
                                   icon:
-                                      'lib/images/icons/v2/compiled/calculator.png',
-                                  color: Colors.green,
+                                      'lib/images/icons/v2/compiled/files.png',
+                                  color: Colors.black,
                                   callback: toggleCallback,
                                 ),
                                 AppLauncherPanelButton(
-                                    app: TextEditorApp(),
-                                    icon:
-                                        'lib/images/icons/v2/compiled/notes.png',
-                                    color: Colors.amber[700],
-                                    callback: toggleCallback),
-                                AppLauncherPanelButton(
-                                    app: TerminalApp(),
-                                    icon:
-                                        'lib/images/icons/v2/compiled/terminal.png',
-                                    color: Colors.grey[900],
-                                    callback: toggleCallback),
-                                AppLauncherPanelButton(
-                                    app: Files(),
-                                    icon:
-                                        'lib/images/icons/v2/compiled/files.png',
-                                    color: Colors.deepOrange[800],
-                                    callback: toggleCallback),
-                                AppLauncherPanelButton(
-                                  app: Tasks(),
+                                  app: TerminalApp(),
                                   icon: 'lib/images/icons/v2/compiled/task.png',
-                                  color: Colors.cyan[900],
+                                  color: Colors.black,
                                   callback: toggleCallback,
                                 ),
                                 AppLauncherPanelButton(
-                                    app: Settings(),
-                                    icon:
-                                        'lib/images/icons/v2/compiled/settings.png',
-                                    color: Colors.deepOrange[700],
-                                    callback: toggleCallback),
+                                  app: Welcome(),
+                                  icon:
+                                      'lib/images/icons/v2/compiled/messages.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
                                 AppLauncherPanelButton(
-                                    app: HisApp(),
-                                    icon:
-                                        'lib/images/icons/v2/compiled/theme.png',
-                                    color: Colors.grey[900],
-                                    callback: toggleCallback),
+                                  app: TerminalApp(),
+                                  icon:
+                                      'lib/images/icons/v2/compiled/terminal.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
+                                AppLauncherPanelButton(
+                                  app: TextEditorApp(),
+                                  icon: 'lib/images/icons/v2/compiled/root.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
+                                AppLauncherPanelButton(
+                                  app: TextEditorApp(),
+                                  icon:
+                                      'lib/images/icons/v2/compiled/notes.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
+                                AppLauncherPanelButton(
+                                  app: Welcome(),
+                                  icon:
+                                      'lib/images/icons/v2/compiled/developer.png',
+                                  color: Colors.black,
+                                  callback: toggleCallback,
+                                ),
                               ]),
                           StatusTrayWidget(
                             toggleKey: KeyRing.statusToggleKey,

@@ -3,9 +3,11 @@
 // found in the LICENSE file.
 
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'widgets/toggle.dart';
 
@@ -21,60 +23,68 @@ class LauncherToggleWidget extends StatelessWidget {
   LauncherToggleWidget({
     GlobalKey<ToggleState> toggleKey,
     ValueChanged<bool> callback,
-  })
-      : _toggleKey = toggleKey,
+  })  : _toggleKey = toggleKey,
         _callback = callback;
-
   @override
-  Widget build(BuildContext context) => new Toggle(
-        key: _toggleKey,
-        callback: _callback,
-        builder: (Animation<double> animation) => new AspectRatio(
-              aspectRatio: 1.0,
-              child: new AnimatedBuilder(
-                animation: animation,
-                builder: (BuildContext context, Widget child) =>
-                    new CustomPaint(
-                      painter: new _Painter(
-                        _backgroundOpacityTween.evaluate(animation),
+  Widget build(BuildContext context) => new Container(
+        //width: 30,
+        height: 50,
+        child: Toggle(
+          key: _toggleKey,
+          callback: _callback,
+          builder: (Animation<double> animation) => new AnimatedBuilder(
+            animation: animation,
+            builder: (BuildContext context, Widget child) => new Row(
+              children: <Widget>[
+                new Container(
+                  //color: Colors.white,
+                  height: 40,
+                  width: 485,
+                  child: new Row(
+                    children: [
+                      new Padding(
+                          padding: EdgeInsets.only(top: 0, left: 13, right: 13),
+                          child: new Icon(Icons.border_all_rounded,
+                              color: Colors.black, size: 20)),
+                      new Container(
+                        child: new Row(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            mainAxisSize: MainAxisSize.max,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              new Padding(
+                                padding: EdgeInsets.only(
+                                    top: 1, left: 12, right: 10),
+                                child: new Icon(
+                                  Icons.search,
+                                  size: 18,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              new Text(
+                                "Type here to search",
+                                style: new TextStyle(
+                                    color: Colors.grey[900], fontSize: 15),
+                              ),
+                            ]),
+                        color: Colors.white,
+                        width: 345,
+                        height: 40,
                       ),
-                    ),
-              ),
+                      new Padding(
+                          padding: EdgeInsets.only(top: 0, left: 13, right: 13),
+                          child: new Icon(Icons.panorama_fish_eye,
+                              color: Colors.black, size: 20)),
+                      new Padding(
+                          padding: EdgeInsets.only(top: 0, left: 13),
+                          child: new Icon(Icons.menu_open,
+                              color: Colors.black, size: 20)),
+                    ],
+                  ),
+                )
+              ],
             ),
-      );
-}
-
-class _Painter extends CustomPainter {
-  final double _backgroundOpacity;
-
-  _Painter(this._backgroundOpacity);
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final double radius = min(8.0, size.shortestSide / 2);
-    if (_backgroundOpacity > 0) {
-      canvas.drawCircle(
-        size.center(Offset.zero),
-        min(radius + 8.0, size.shortestSide),
-        new Paint()..color = Colors.grey.withOpacity(_backgroundOpacity),
-      );
-    }
-    canvas.drawArc(
-        new Rect.fromCircle(
-          center: size.center(Offset.zero),
-          radius: radius,
+          ),
         ),
-        0.0,
-        2 * pi,
-        false,
-        new Paint()
-          ..color = Colors.white
-          ..strokeWidth = 2.0
-          ..style = PaintingStyle.stroke);
-  }
-
-  @override
-  bool shouldRepaint(_Painter oldDelegate) {
-    return _backgroundOpacity != oldDelegate._backgroundOpacity;
-  }
+      );
 }

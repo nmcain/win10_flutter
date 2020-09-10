@@ -34,8 +34,8 @@ class AppLauncherPanelButton extends StatefulWidget {
       this.icon,
       this.appExists = true,
       this.customBar = false,
-      this.childHeight = 35.0,
-      this.childWidth = 35.0,
+      this.childHeight = 30.0,
+      this.childWidth = 30.0,
       this.color,
       callback})
       : _callback = callback;
@@ -83,12 +83,12 @@ class _AppLauncherPanelButtonState extends State<AppLauncherPanelButton> {
                       });
             },
             child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 10.0),
+              margin: EdgeInsets.symmetric(horizontal: 14.0),
               child: Image.asset(
                 widget.icon,
-                fit: BoxFit.cover,
-                width: widget.childWidth,
-                height: widget.childHeight,
+                filterQuality: FilterQuality.high,
+                width: 25,
+                height: 25,
               ),
             ),
           ),
@@ -121,8 +121,8 @@ class AppLauncherDrawerButton extends StatefulWidget {
       this.label,
       this.appExists = true,
       this.customBar = true,
-      this.childHeight = 64.0,
-      this.childWidth = 64.0,
+      this.childHeight = 45.0,
+      this.childWidth = 45.0,
       this.color,
       callback})
       : _callback =
