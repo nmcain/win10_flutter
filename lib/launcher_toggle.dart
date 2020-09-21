@@ -8,7 +8,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'icons/windows_icons.dart';
 import 'widgets/toggle.dart';
 
 /// A toggle button for the launcher.
@@ -43,9 +43,13 @@ class LauncherToggleWidget extends StatelessWidget {
                   child: new Row(
                     children: [
                       new Padding(
-                          padding: EdgeInsets.only(top: 0, left: 13, right: 13),
-                          child: new Icon(Icons.border_all_rounded,
-                              color: Colors.black, size: 20)),
+                        padding: EdgeInsets.only(top: 0, left: 15, right: 15),
+                        child: new FaIcon(
+                          FontAwesomeIcons.windows,
+                          color: Colors.black,
+                          size: 20,
+                        ),
+                      ),
                       new Container(
                         child: new Row(
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -56,15 +60,17 @@ class LauncherToggleWidget extends StatelessWidget {
                                 padding: EdgeInsets.only(
                                     top: 1, left: 12, right: 10),
                                 child: new Icon(
-                                  Icons.search,
-                                  size: 18,
+                                  Windows.uniE094,
+                                  size: 15,
                                   color: Colors.black,
                                 ),
                               ),
                               new Text(
                                 "Type here to search",
                                 style: new TextStyle(
-                                    color: Colors.grey[900], fontSize: 15),
+                                    fontFamily: "Segoe UI",
+                                    color: Colors.grey[900],
+                                    fontSize: 15),
                               ),
                             ]),
                         color: Colors.white,
@@ -77,8 +83,8 @@ class LauncherToggleWidget extends StatelessWidget {
                               color: Colors.black, size: 20)),
                       new Padding(
                           padding: EdgeInsets.only(top: 0, left: 13),
-                          child: new Icon(Icons.menu_open,
-                              color: Colors.black, size: 20)),
+                          child: new Icon(Windows.uniE17D,
+                              color: Colors.black, size: 18)),
                     ],
                   ),
                 )

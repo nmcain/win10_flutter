@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/flutter_assets/AssetManifest.json</key>
 		<data>
-		MUa+gDeNIB8P1YRtUFiqM76T2h0=
+		IJYs8zr891vH/K4acGFLLjHIDEw=
 		</data>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<data>
-		PVlOVW2r3XpBlb+6cNKogu2lc5Y=
+		oKd/hgnQXB5QiyYvB/rWYPyYRKw=
 		</data>
 		<key>Resources/flutter_assets/NOTICES</key>
 		<data>
@@ -138,11 +138,15 @@
 		</data>
 		<key>Resources/flutter_assets/kernel_blob.bin</key>
 		<data>
-		OT84GXFM2pa045nnpM9v2Kf1jN4=
+		y/7PhgA+6Wqo/CLootMXi4QmuoQ=
 		</data>
 		<key>Resources/flutter_assets/lib/application.json</key>
 		<data>
 		4b4OenR2u6aWg5agvi8nBLpBWFo=
+		</data>
+		<key>Resources/flutter_assets/lib/icons/fonts/Windows.ttf</key>
+		<data>
+		gMpC+dMk/BAcNEaq+qHXplqtmSE=
 		</data>
 		<key>Resources/flutter_assets/lib/images/Desktop/Cityscapes/stairs.png</key>
 		<data>
@@ -546,22 +550,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			MUa+gDeNIB8P1YRtUFiqM76T2h0=
+			IJYs8zr891vH/K4acGFLLjHIDEw=
 			</data>
 			<key>hash2</key>
 			<data>
-			TWhXUz0VjDxI0qrDsSUAVLDHPAObkl8ELRXJq5K3KCw=
+			xp33kNEKtrsHy1wSddDjS/17KlkT+/I8B8zv6Xt2xHI=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			PVlOVW2r3XpBlb+6cNKogu2lc5Y=
+			oKd/hgnQXB5QiyYvB/rWYPyYRKw=
 			</data>
 			<key>hash2</key>
 			<data>
-			UMIILb72wFu65NjRniwB+EZJziZTCXxuuWnYebF7Wsg=
+			LelvM2kSvs0dELZnpdCYtw0un2qXAktMXQLwvg2cNAU=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/NOTICES</key>
@@ -898,11 +902,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			OT84GXFM2pa045nnpM9v2Kf1jN4=
+			y/7PhgA+6Wqo/CLootMXi4QmuoQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			coVJyK7ElASLrCmYeDirNiyCEodhEIUrfCFiJ+P0s8g=
+			K+zP9EiHeE4wD2HxNkBwv+OmBUQWLHqYMnMTRfkBFtE=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/application.json</key>
@@ -914,6 +918,17 @@
 			<key>hash2</key>
 			<data>
 			bEJQ5OAqBkxq0psO4MpxiCg1t5F4A1VsxfWp94A3vx8=
+			</data>
+		</dict>
+		<key>Resources/flutter_assets/lib/icons/fonts/Windows.ttf</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			gMpC+dMk/BAcNEaq+qHXplqtmSE=
+			</data>
+			<key>hash2</key>
+			<data>
+			EYeaMTboSV+S+gSk1qMV19+AxxYf49/eCrTs+M6B1dg=
 			</data>
 		</dict>
 		<key>Resources/flutter_assets/lib/images/Desktop/Cityscapes/stairs.png</key>

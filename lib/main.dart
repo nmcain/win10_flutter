@@ -16,7 +16,8 @@ limitations under the License.
 
 import 'dart:io';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
+import 'icons/windows_icons.dart';
+import 'applications/terminal/terminal-widget.dart';
 import 'package:GeneratedApp/applications/calculator.dart';
 import 'package:GeneratedApp/applications/editor.dart';
 import 'package:GeneratedApp/applications/welcome.dart';
@@ -99,7 +100,7 @@ List<AppLauncherPanelButton> testLaunchers = [
   AppLauncherPanelButton(
       app: TextEditorApp(), icon: 'lib/images/icons/v2/compiled/notes.png'),
   AppLauncherPanelButton(
-      app: TerminalApp(), icon: 'lib/images/icons/v2/compiled/terminal.png'),
+      app: Terminal(), icon: 'lib/images/icons/v2/compiled/terminal.png'),
   AppLauncherPanelButton(
     icon: 'lib/images/icons/v2/compiled/files.png',
     appExists: false,
@@ -261,26 +262,49 @@ class _MyHomePageState extends State<MyHomePage> {
         // 3 - Launcher Panel
         SystemOverlay(
           key: KeyRing.launcherOverlayKey,
-          builder: (Animation<double> animation) => Center(
-            child: AnimatedBuilder(
-              animation: animation,
-              builder: (BuildContext context, Widget child) => FadeTransition(
-                opacity: _overlayOpacityTween.animate(animation),
-                child: SlideTransition(
-                  position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
-                      .animate(animation),
-                  child: child,
+          builder: (Animation<double> animation) => Container(
+            child: new Positioned(
+              bottom: 40,
+              child: AnimatedBuilder(
+                animation: animation,
+                builder: (BuildContext context, Widget child) => FadeTransition(
+                  opacity: _overlayOpacityTween.animate(animation),
+                  child: SlideTransition(
+                    position: Tween(begin: Offset(0, 1), end: Offset(0, 0))
+                        .animate(animation),
+                    child: child,
+                  ),
                 ),
-              ),
-              child: ClipRRect(
-                //borderRadius: BorderRadius.circular(5.0),//THIS IS THE ROUNDING OF THE LAUNCHER INCASE YOU WANT IT TO CHANGE
                 child: Container(
-                    padding: const EdgeInsets.all(0.0),
-                    alignment: Alignment.center,
-                    width: 1.7976931348623157e+308,
-                    height: 1.7976931348623157e+308,
-                    child: LauncherWidget() //Launcher(),
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey[800].withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3), // changes position of shadow
+                      ),
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 0.5,
+                        blurRadius: 0,
+                        offset: Offset(0, 0), // changes position of shadow
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    //borderRadius: BorderRadius.circular(5.0),//THIS IS THE ROUNDING OF THE LAUNCHER INCASE YOU WANT IT TO CHANGE
+                    child: new Positioned(
+                      child: Container(
+                          padding: const EdgeInsets.all(0.0),
+                          alignment: Alignment.center,
+                          width: 650,
+                          height: 700,
+                          child: LauncherWidget() //Launcher(),
+                          ),
                     ),
+                  ),
+                ),
               ),
             ),
           ),
@@ -373,7 +397,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   callback: toggleCallback,
                                 ),
                                 AppLauncherPanelButton(
-                                  app: TerminalApp(),
+                                  app: Terminal(),
                                   icon: 'lib/images/icons/v2/compiled/task.png',
                                   color: Colors.black,
                                   callback: toggleCallback,
@@ -386,7 +410,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   callback: toggleCallback,
                                 ),
                                 AppLauncherPanelButton(
-                                  app: TerminalApp(),
+                                  app: Terminal(),
                                   icon:
                                       'lib/images/icons/v2/compiled/terminal.png',
                                   color: Colors.black,

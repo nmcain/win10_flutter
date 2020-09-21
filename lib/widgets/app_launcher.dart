@@ -137,61 +137,67 @@ class AppLauncherDrawerButtonState extends State<AppLauncherDrawerButton> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.max,
-      children: [
-        Opacity(
-          opacity: widget.appExists ? 1.0 : 0.4,
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                toggled = !_toggled;
-                widget._callback?.call(_toggled);
-              });
+    return Container(
+        padding: EdgeInsets.all(3),
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Opacity(
+              opacity: widget.appExists ? 1.0 : 0.4,
+              child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    toggled = !_toggled;
+                    widget._callback?.call(_toggled);
+                  });
 
-              widget.appExists
-                  ? Provider.of<WindowsData>(context, listen: false)
-                      .add(child: widget.app, color: widget.color)
-                  : showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        // return object of type Dialog
-                        return AlertDialog(
-                            title: new Text("Feature not implemented"),
-                            content: new Text(
-                                "This feature is currently not available on your build of Pangolin. Please see https://reddit.com/r/dahliaos to check for updates."),
-                            actions: <Widget>[
-                              // usually buttons at the bottom of the dialog
-                              new FlatButton(
-                                  child: new Text("OK"),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  })
-                            ]);
-                      });
-            },
-            child: Container(
-              padding: EdgeInsets.all(0),
-              child: Image.asset(
-                widget.icon,
-                fit: BoxFit.cover,
-                width: widget.childWidth,
-                height: widget.childHeight,
+                  widget.appExists
+                      ? Provider.of<WindowsData>(context, listen: false)
+                          .add(child: widget.app, color: widget.color)
+                      : showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            // return object of type Dialog
+                            return AlertDialog(
+                                title: new Text("Feature not implemented"),
+                                content: new Text(
+                                    "This feature is currently not available on your build of Pangolin. Please see https://reddit.com/r/dahliaos to check for updates."),
+                                actions: <Widget>[
+                                  // usually buttons at the bottom of the dialog
+                                  new FlatButton(
+                                      child: new Text("OK"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      })
+                                ]);
+                          });
+                },
+                child: Container(
+                  margin: EdgeInsets.only(right: 10),
+                  height: 32,
+                  width: 32,
+                  color: Color(0xff0178D6),
+                  padding: EdgeInsets.all(3),
+                  child: Image.asset(
+                    widget.icon,
+                    width: 25,
+                    height: 25,
+                  ),
+                ),
               ),
             ),
-          ),
-        ),
-        Text(
-          widget.label,
-          style: TextStyle(
-            fontSize: 15.0,
-            fontWeight: FontWeight.w400,
-            color: widget.appExists ? Colors.white : Colors.grey[700],
-          ),
-          textAlign: TextAlign.center,
-        )
-      ],
-    );
+            Text(
+              widget.label,
+              style: TextStyle(
+                fontSize: 13.0,
+                fontWeight: FontWeight.w300,
+                fontFamily: "Segoe UI",
+                color: widget.appExists ? Colors.black : Colors.black,
+              ),
+              textAlign: TextAlign.center,
+            )
+          ],
+        ));
   }
 
   set toggled(bool value) {

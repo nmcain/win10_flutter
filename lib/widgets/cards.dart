@@ -13,7 +13,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+import '../applications/terminal/terminal-widget.dart';
 import 'package:GeneratedApp/localization/localization.dart';
 import 'package:flutter/material.dart';
 import '../applications/calculator.dart';
@@ -33,122 +33,341 @@ import 'package:GeneratedApp/commons/key_ring.dart';
 import 'package:GeneratedApp/commons/functions.dart';
 import 'package:GeneratedApp/applications/logging.dart';
 
-Expanded tileSection(BuildContext context) {
+Container tileSection(BuildContext context) {
   Localization local = Localization.of(context);
-  return Expanded(
+  return Container(
     child: Container(
-        constraints: BoxConstraints(maxWidth: 900),
+        constraints: BoxConstraints(maxWidth: 260),
         padding: EdgeInsets.all(10.0),
-        child: GridView.count(crossAxisCount: 5, children: [
-          AppLauncherDrawerButton(
-            app: TerminalApp(),
-            icon: 'lib/images/icons/v2/compiled/terminal.png',
-            label: local.get("app_terminal"),
-            color: Colors.grey[900],
-            callback: toggleCallback,
-          ),
-          AppLauncherDrawerButton(
-            app: Tasks(),
-            icon: 'lib/images/icons/v2/compiled/task.png',
-            label: local.get("app_taskmanager"),
-            color: Colors.cyan[900],
-            callback: toggleCallback,
-          ),
-          AppLauncherDrawerButton(
-              app: Settings(),
-              icon: 'lib/images/icons/v2/compiled/settings.png',
-              label: local.get("app_settings"),
-              color: Colors.deepOrange[700],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: RootTerminalApp(),
-              icon: 'lib/images/icons/v2/compiled/root.png',
-              label: local.get("app_rootterminal"),
-              color: Colors.red[700],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: TextEditorApp(),
-              icon: 'lib/images/icons/v2/compiled/notes.png',
-              label: local.get("app_notes"),
-              color: Colors.amber[700],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/note_mobile.png',
-              label: local.get("app_notesmobile"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              app: Logs(),
-              icon: 'lib/images/icons/v2/compiled/logs.png',
-              label: local.get("app_systemlogs"),
-              color: Colors.red[700],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: Files(),
-              icon: 'lib/images/icons/v2/compiled/files.png',
-              label: local.get("app_files"),
-              color: Colors.deepOrange[800],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/disks.png',
-              label: local.get("app_disks"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              app: Calculator(),
-              icon: 'lib/images/icons/v2/compiled/calculator.png',
-              label: local.get("app_calculator"),
-              color: Colors.green,
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: Containers(),
-              icon: 'lib/images/icons/v2/compiled/containers.png',
-              label: local.get("app_containers"),
-              color: Colors.blue[800],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: HisApp(),
-              icon: 'lib/images/icons/v2/compiled/theme.png',
-              label: local.get("app_themedemo"),
-              color: Colors.grey[900],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: Welcome(),
-              icon: 'lib/images/dahlia.png',
-              label: local.get("app_welcome"),
-              color: Colors.grey[900],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: DeveloperApp(),
-              icon: 'lib/images/icons/v2/compiled/developer.png',
-              label: 'Developer Options',
-              color: Colors.red[700],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              app: BrowserApp(),
-              icon: 'lib/images/icons/v2/compiled/web.png',
-              label: local.get("app_web"),
-              color: Colors.grey[500],
-              callback: toggleCallback),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/clock.png',
-              label: local.get("app_clock"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/messages.png',
-              label: local.get("app_messages"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/music.png',
-              label: local.get("app_music"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/photos.png',
-              label: local.get("app_media"),
-              appExists: false),
-          AppLauncherDrawerButton(
-              icon: 'lib/images/icons/v2/compiled/help.png',
-              label: local.get("app_help"),
-              appExists: false),
-        ])),
+        child: new SingleChildScrollView(
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "Recently added",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    color: Colors.black,
+                    fontFamily: "Segoe UI",
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                app: Terminal(),
+                icon: 'lib/images/icons/v2/compiled/terminal.png',
+                label: "Terminal",
+                color: Colors.grey[900],
+                callback: toggleCallback,
+              ),
+              AppLauncherDrawerButton(
+                  app: RootTerminalApp(),
+                  icon: 'lib/images/icons/v2/compiled/root.png',
+                  label: "Office",
+                  color: Colors.red[700],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "C",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: Calculator(),
+                  icon: 'lib/images/icons/v2/compiled/calculator.png',
+                  label: local.get("app_calculator"),
+                  color: Colors.green,
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "D",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/disks.png',
+                  label: "Disk Management",
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "E",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: BrowserApp(),
+                  icon: 'lib/images/icons/v2/compiled/web.png',
+                  label: "Edge",
+                  color: Colors.grey[500],
+                  callback: toggleCallback),
+              AppLauncherDrawerButton(
+                  app: Files(),
+                  icon: 'lib/images/icons/v2/compiled/files.png',
+                  label: "Explorer",
+                  color: Colors.deepOrange[800],
+                  callback: toggleCallback),
+              AppLauncherDrawerButton(
+                  app: Logs(),
+                  icon: 'lib/images/icons/v2/compiled/logs.png',
+                  label: "Event Viewer",
+                  color: Colors.red[700],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "F",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: Files(),
+                  icon: 'lib/images/icons/v2/compiled/files.png',
+                  label: "File Explorer",
+                  color: Colors.deepOrange[800],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "G",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/music.png',
+                  label: "Groove Music",
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "H",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/help.png',
+                  label: local.get("app_help"),
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "M",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/messages.png',
+                  label: "Mail",
+                  appExists: false),
+              AppLauncherDrawerButton(
+                app: Tasks(),
+                icon: 'lib/images/icons/v2/compiled/task.png',
+                label: "Microsoft Store",
+                color: Colors.cyan[900],
+                callback: toggleCallback,
+              ),
+              AppLauncherDrawerButton(
+                  app: DeveloperApp(),
+                  icon: 'lib/images/icons/v2/compiled/developer.png',
+                  label: 'Microsoft Visual Studio',
+                  color: Colors.red[700],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "O",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: RootTerminalApp(),
+                  icon: 'lib/images/icons/v2/compiled/root.png',
+                  label: "Office",
+                  color: Colors.red[700],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "P",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: HisApp(),
+                  icon: 'lib/images/icons/v2/compiled/theme.png',
+                  label: "Personalization",
+                  color: Colors.grey[900],
+                  callback: toggleCallback),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/photos.png',
+                  label: "Photos",
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "S",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: Settings(),
+                  icon: 'lib/images/icons/v2/compiled/settings.png',
+                  label: "Settings",
+                  color: Colors.deepOrange[700],
+                  callback: toggleCallback),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/note_mobile.png',
+                  label: "Sticky Notes",
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "T",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                app: Terminal(),
+                icon: 'lib/images/icons/v2/compiled/terminal.png',
+                label: "Terminal",
+                color: Colors.grey[900],
+                callback: toggleCallback,
+              ),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "U",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: Containers(),
+                  icon: 'lib/images/icons/v2/compiled/ubuntu.png',
+                  label: "Ubuntu 20.04 LTS",
+                  color: Colors.blue[800],
+                  callback: toggleCallback),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "W",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: TextEditorApp(),
+                  icon: 'lib/images/icons/v2/compiled/notes.png',
+                  label: "Word",
+                  color: Colors.amber[700],
+                  callback: toggleCallback),
+              AppLauncherDrawerButton(
+                  icon: 'lib/images/icons/v2/compiled/clock.png',
+                  label: "Weather",
+                  appExists: false),
+              new Padding(
+                padding: EdgeInsets.only(top: 10.0, bottom: 10.0, left: 2),
+                child: Text(
+                  "Y",
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    fontWeight: FontWeight.w300,
+                    fontFamily: "Segoe UI",
+                    color: Colors.black,
+                  ),
+                  textAlign: TextAlign.left,
+                ),
+              ),
+              AppLauncherDrawerButton(
+                  app: Welcome(),
+                  icon: 'lib/images/dahlia.png',
+                  label: "Your Phone",
+                  color: Colors.grey[900],
+                  callback: toggleCallback),
+            ]))),
   );
 }
 

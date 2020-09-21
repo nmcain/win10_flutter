@@ -15,10 +15,11 @@ limitations under the License.
 */
 
 import 'package:flutter/material.dart';
-import 'searchbar.dart';
 import 'dart:ui';
+import 'widgets/tile.dart';
 import 'widgets/cards.dart';
 import 'localization/localization.dart';
+import 'icons/windows_icons.dart';
 
 class LauncherWidget extends StatefulWidget {
   @override
@@ -57,81 +58,269 @@ MaterialButton buildTile(String icon, String label) {
 }
 
 class LauncherState extends State<LauncherWidget> {
-
   @override
   Widget build(BuildContext context) {
     Localization local = Localization.of(context);
 
-  return MaterialApp(
+    return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.deepOrange,
         primaryColor: const Color(0xFFff5722),
         accentColor: const Color(0xFFff5722),
-        canvasColor: Colors.black.withOpacity(0.5),
+        canvasColor: Colors.white.withOpacity(0.5),
       ),
-      home:
-     new Stack(
-      children: [
-        new BackdropFilter(
-          filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-          child: new Container(
-            decoration: new BoxDecoration(color: Colors.black.withOpacity(0.5)),
-          ),
-        ),
-        new Scaffold(
-          body: Center(
-            child: Column(
-              //mainAxisAlignment: MainAxisAlignment.top,
-              children: <Widget>[
-                new SearchWidget(),
-                new SingleChildScrollView(
-                    padding:
-                        new EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
-                    scrollDirection: Axis.horizontal,
-                    child: new Row(children: <Widget>[
-                      buildCard(
-                          Icons.brightness_low,
-                          local.get("launcher_card_system_title"),
-                          Colors.deepOrange,
-                          Colors.deepOrange.withAlpha(30),
-                          local.get("launcher_card_system_value"),
-                          context),
-                      buildCard(
-                          Icons.info,
-                          local.get("launcher_card_information_title"),
-                          Colors.blue,
-                          Colors.blue.withAlpha(30),
-                          local.get("launcher_card_information_value"),
-                          context),
-                      buildCard(
-                          Icons.music_note,
-                          local.get("launcher_card_music_title"),
-                          Colors.lightGreen,
-                          Colors.lightGreen.withAlpha(30),
-                          local.get("launcher_card_music_value"),
-                          context),
-                      buildCard(
-                          Icons.lock,
-                          local.get("launcher_card_security_title"),
-                          Colors.red,
-                          Colors.red.withAlpha(30),
-                          local.get("launcher_card_security_value"),
-                          context),
-                      buildCard(
-                          Icons.memory,
-                          local.get("launcher_card_kernel_title"),
-                          Colors.pink,
-                          Colors.pink.withAlpha(30),
-                          local.get("launcher_card_kernel_value"),
-                          context),
-                    ])),
-                tileSection(context),
-              ],
+      home: new Stack(
+        children: [
+          new BackdropFilter(
+            filter: new ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+            child: new Container(
+              decoration:
+                  new BoxDecoration(color: Colors.white.withOpacity(0.5)),
             ),
           ),
-        ),
-      ],
-    ),
+          new Scaffold(
+            body: Center(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    new Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      mainAxisSize: MainAxisSize.max,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: new Icon(
+                              Windows.uniE14C,
+                              color: Colors.black,
+                              size: 16,
+                            )),
+                        new Expanded(
+                          child: Container(),
+                        ),
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.deepOrange,
+                              child: Text('N'),
+                              radius: 10,
+                            )),
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: new Icon(
+                              Windows.uniE8B7,
+                              color: Colors.black,
+                              size: 16,
+                            )),
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: new Icon(
+                              Windows.uniE8B2,
+                              color: Colors.black,
+                              size: 16,
+                            )),
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: new Icon(
+                              Windows.uniE115,
+                              color: Colors.black,
+                              size: 16,
+                            )),
+                        new Padding(
+                            padding:
+                                EdgeInsets.only(left: 15, bottom: 15, top: 15),
+                            child: new Icon(
+                              Windows.uniE7E8,
+                              color: Colors.black,
+                              size: 16,
+                            )),
+                      ],
+                    ),
+                    new Container(
+                      width: 10,
+                    ),
+                    tileSection(context),
+                    new Expanded(
+                        child: Container(
+                      padding: EdgeInsets.all(10.0),
+                      child: new SingleChildScrollView(
+                        child: new Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            new Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.0, bottom: 10.0, left: 2),
+                              child: Text(
+                                "Productivity",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.black,
+                                  fontFamily: "Segoe UI",
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/task.png',
+                                    "Microsoft Store",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    205),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/root.png',
+                                    "Office",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                              ],
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/web.png',
+                                    "Edge",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/settings.png',
+                                    "Settings",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/notes.png',
+                                    "Word",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                              ],
+                            ),
+                            new Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.0, bottom: 10.0, left: 2),
+                              child: Text(
+                                "Explore",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.black,
+                                  fontFamily: "Segoe UI",
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/disks.png',
+                                    "Disks",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/containers.png',
+                                    "Containers",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/github.png',
+                                    "Github",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                              ],
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/files.png',
+                                    "File Explorer",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/messages.png',
+                                    "Mail",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    205),
+                              ],
+                            ),
+                            new Padding(
+                              padding: EdgeInsets.only(
+                                  top: 10.0, bottom: 10.0, left: 2),
+                              child: Text(
+                                "Create",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  fontWeight: FontWeight.w300,
+                                  color: Colors.black,
+                                  fontFamily: "Segoe UI",
+                                ),
+                                textAlign: TextAlign.left,
+                              ),
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/music.png',
+                                    "Music",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/logs.png',
+                                    "System Events",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/calculator.png',
+                                    "Calculator",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                              ],
+                            ),
+                            new Row(
+                              children: [
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/developer.png',
+                                    "Microsoft Visual Studio",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    205),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/terminal.png',
+                                    "Terminal",
+                                    Color(0xFF0178D6),
+                                    Colors.white,
+                                    100),
+                              ],
+                            )
+                          ],
+                        ),
+                      ),
+                    )),
+                  ]),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

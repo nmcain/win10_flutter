@@ -1,7 +1,7 @@
 version: "Apple Swift version 5.1.2 (swiftlang-1100.0.278 clang-1100.0.33.9)"
 options: "5933000d477081bf662d505bce1ae90a"
-build_time: [1599539084, 213474000]
+build_time: [1600643063, 802533000]
 inputs:
   "/Users/nmcain/Documents/win10_flutter/macos/Runner/MainFlutterWindow.swift": [1599483284, 0]
   "/Users/nmcain/Documents/win10_flutter/macos/Runner/AppDelegate.swift": [1599483284, 0]
-  "/Users/nmcain/Documents/win10_flutter/macos/Flutter/GeneratedPluginRegistrant.swift": [1599539070, 482129216]
+  "/Users/nmcain/Documents/win10_flutter/macos/Flutter/GeneratedPluginRegistrant.swift": [1600643040, 185074707]

@@ -13,11 +13,12 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 */
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:GeneratedApp/widgets/hover.dart';
 import 'package:flutter/material.dart';
 import '../model.dart';
 import 'model.dart';
+import '../icons/windows_icons.dart';
 
 /// Signature of window interaction callbacks.
 typedef void WindowInteractionCallback();
@@ -264,7 +265,7 @@ class WindowState extends State<Window> {
                                   padding:
                                       EdgeInsets.symmetric(horizontal: 4.0),
                                   height: 35.0,
-                                  color: _color,
+                                  color: Colors.white,
                                   child: Row(
                                     mainAxisAlignment: MainAxisAlignment.end,
                                     children: [
@@ -308,15 +309,17 @@ class WindowState extends State<Window> {
       child: GestureDetector(
         onTap: () => _closeWindow(),
         child: Container(
-            width: 30,
-            height: 30,
+            width: 50,
+            height: 35,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(0),
               color: hoverClose
-                  ? Colors.grey[800].withOpacity(0.3)
+                  ? Color(0xffE72524)
                   : Colors.grey[800].withOpacity(0.0),
             ),
-            child: Icon(Icons.close, color: Colors.white, size: 20)),
+            child: Icon(Windows.uniE947,
+                color: hoverClose ? Color(0xffffffff) : Colors.black,
+                size: 13)),
       ),
     );
   }
@@ -338,15 +341,15 @@ class WindowState extends State<Window> {
             ? _maximizeWindow()
             : _restoreWindowFromMaximizeMode(),
         child: Container(
-            width: 30,
-            height: 30,
+            width: 50,
+            height: 35,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(0),
               color: hoverMaximize
                   ? Colors.grey[600].withOpacity(0.3)
                   : Colors.grey[600].withOpacity(0.0),
             ),
-            child: Icon(Icons.crop_square, color: Colors.white, size: 20)),
+            child: Icon(Windows.uniE922, color: Colors.black, size: 12)),
       ),
     );
   }
@@ -366,15 +369,15 @@ class WindowState extends State<Window> {
       child: GestureDetector(
         onTap: () => () {},
         child: Container(
-            width: 30,
-            height: 30,
+            width: 50,
+            height: 35,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(30),
+              borderRadius: BorderRadius.circular(0),
               color: hoverMinimize
                   ? Colors.grey[800].withOpacity(0.3)
                   : Colors.grey[800].withOpacity(0.0),
             ),
-            child: Icon(Icons.minimize, color: Colors.white, size: 20)),
+            child: Icon(Windows.uniE108, color: Colors.black, size: 12)),
       ),
     );
   }

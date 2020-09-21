@@ -49,18 +49,21 @@ flutter:
         - asset: fonts/Cousine/Cousine-Regular.ttf
     - family: Roboto
       fonts:
-        - asset: fonts/Roboto/Roboto-Thin.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 100
-        - asset: fonts/Roboto/Roboto-Light.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 300
-        - asset: fonts/Roboto/Roboto-Regular.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 400
-        - asset: fonts/Roboto/Roboto-Medium.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 500
-        - asset: fonts/Roboto/Roboto-Bold.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 700
-        - asset: fonts/Roboto/Roboto-Black.ttf
+        - asset: fonts/segoe/Segoe.ttf
           weight: 900
+    - family:  Windows
+      fonts:
+       - asset: lib/icons/fonts/Windows.ttf
     - family: Source Code pro
       fonts:
         - asset: fonts/Source_Code_Pro/SourceCodePro-ExtraLight.ttf

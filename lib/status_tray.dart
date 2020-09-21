@@ -19,7 +19,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
 import 'dart:async';
-
+import 'icons/windows_icons.dart';
 import 'widgets/toggle.dart';
 
 /// Hosts a collection of status icons.
@@ -30,13 +30,11 @@ class StatusTrayWidget extends StatefulWidget {
   final Tween<double> _backgroundOpacityTween =
       new Tween<double>(begin: 0.0, end: 0.33);
 
-
   /// Constructor.
   StatusTrayWidget({
     GlobalKey<ToggleState> toggleKey,
     ValueChanged<bool> callback,
-  })
-      : _toggleKey = toggleKey,
+  })  : _toggleKey = toggleKey,
         _callback = callback;
 
   @override
@@ -48,8 +46,10 @@ class StatusTrayWidgetState extends State<StatusTrayWidget> {
   @override
   void initState() {
     _timeString = _formatDateTime(DateTime.now());
-    if (!isTesting) Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
-    else print("WARNING: Clock was disabled due to testing flag!");
+    if (!isTesting)
+      Timer.periodic(Duration(seconds: 1), (Timer t) => _getTime());
+    else
+      print("WARNING: Clock was disabled due to testing flag!");
     super.initState();
   }
 
@@ -62,9 +62,9 @@ class StatusTrayWidgetState extends State<StatusTrayWidget> {
   }
 
   String _formatDateTime(DateTime dateTime) {
-
-    return DateFormat('hh:mm').format(dateTime);
+    return DateFormat('h:mm a \n M/d/yyyy').format(dateTime);
   }
+
   @override
   Widget build(BuildContext context) => new Toggle(
         key: widget._toggleKey,
@@ -73,50 +73,63 @@ class StatusTrayWidgetState extends State<StatusTrayWidget> {
           return new AnimatedBuilder(
             animation: animation,
             builder: (BuildContext context, Widget child) => new Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                  decoration: new BoxDecoration(
-                    borderRadius: new BorderRadius.circular(4.0),
-                    color: Colors.grey.withOpacity(
-                        widget._backgroundOpacityTween.evaluate(animation)),
-                  ),
-                  child: child,
-                ),
-            child: Center(
-              child: 
-              
-              new Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              
-              new Icon(
-                Icons.signal_wifi_4_bar,
-                color: const Color(0xFFffffff),
-                size: 20.0),
-    
-             
-              new Icon(
-                Icons.bluetooth,
-                color: const Color(0xFFffffff),
-                size: 20.0),
-                
-                 new Icon(
-                Icons.battery_charging_full,
-                color: const Color(0xFFffffff),
-                size: 20.0),
-    
-                Text(
-                _timeString,
-                style: TextStyle(fontSize: 20, color: Colors.white),
+              padding: const EdgeInsets.symmetric(horizontal: 0.0),
+              decoration: new BoxDecoration(
+                borderRadius: new BorderRadius.circular(4.0),
+                color: Colors.grey.withOpacity(
+                    widget._backgroundOpacityTween.evaluate(animation)),
               ),
-            ]
-    
-          ),
-    
-              
-              
-              
+              child: child,
+            ),
+            child: Center(
+              child: new Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    new Padding(
+                      padding: EdgeInsets.only(left: 8, right: 8),
+                      child: new Icon(Windows.uniE010,
+                          color: const Color(0xFF000000), size: 10.0),
+                    ),
+                    new Padding(
+                      padding: EdgeInsets.only(left: 8, right: 8),
+                      child: new Icon(Windows.uniEBB5,
+                          color: const Color(0xFF000000), size: 15.0),
+                    ),
+                    new Padding(
+                      padding: EdgeInsets.only(left: 8, right: 8),
+                      child: new Icon(Windows.uniEC3F,
+                          color: const Color(0xFF000000), size: 16.0),
+                    ),
+                    new Padding(
+                      padding: EdgeInsets.only(left: 5, right: 5),
+                      child: new Icon(Windows.uniE15D,
+                          color: const Color(0xFF000000), size: 16.0),
+                    ),
+                    new Text(
+                      _timeString,
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: "Segoe UI",
+                        color: Colors.black,
+                      ),
+                    ),
+                    new Padding(
+                      padding: EdgeInsets.only(left: 15, right: 20),
+                      child: new Icon(Windows.uniE7E7,
+                          color: const Color(0xFF000000), size: 16.0),
+                    ),
+                    new Padding(
+                      padding: EdgeInsets.only(left: 0, right: 4),
+                      child: new Container(
+                        height: 45,
+                        width: 1,
+                        color: Colors.grey[500],
+                      ),
+                    ),
+                  ]),
             ),
           );
         },
