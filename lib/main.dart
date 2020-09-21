@@ -364,7 +364,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Container(
                       //color: Color.fromARGB(150, 0, 0, 0),
                       decoration: BoxDecoration(
-                        color: Colors.white.withOpacity(0.85),
+                        color: Colors.white.withOpacity(0.8),
                         //uncomment below to add radius to the launcher panel
                         //borderRadius: BorderRadius.circular(100),
                       ),

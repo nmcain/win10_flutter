@@ -173,7 +173,7 @@ class LauncherState extends State<LauncherWidget> {
                             new Row(
                               children: [
                                 startTileWidget(
-                                    'lib/images/icons/v2/compiled/task.png',
+                                    'lib/images/icons/v2/compiled/store-white.png',
                                     "Microsoft Store",
                                     Color(0xFF0178D6),
                                     Colors.white,
@@ -181,7 +181,7 @@ class LauncherState extends State<LauncherWidget> {
                                 startTileWidget(
                                     'lib/images/icons/v2/compiled/root.png',
                                     "Office",
-                                    Color(0xFF0178D6),
+                                    Color(0xFF404040),
                                     Colors.white,
                                     100),
                               ],
@@ -191,18 +191,18 @@ class LauncherState extends State<LauncherWidget> {
                                 startTileWidget(
                                     'lib/images/icons/v2/compiled/web.png',
                                     "Edge",
-                                    Color(0xFF0178D6),
-                                    Colors.white,
-                                    100),
-                                startTileWidget(
-                                    'lib/images/icons/v2/compiled/settings.png',
-                                    "Settings",
-                                    Color(0xFF0178D6),
+                                    Color(0xFF404040),
                                     Colors.white,
                                     100),
                                 startTileWidget(
                                     'lib/images/icons/v2/compiled/notes.png',
                                     "Word",
+                                    Color(0xFF15366B),
+                                    Colors.white,
+                                    100),
+                                startTileWidget(
+                                    'lib/images/icons/v2/compiled/settings.png',
+                                    "Settings",
                                     Color(0xFF0178D6),
                                     Colors.white,
                                     100),
@@ -226,7 +226,7 @@ class LauncherState extends State<LauncherWidget> {
                               children: [
                                 startTileWidget(
                                     'lib/images/icons/v2/compiled/disks.png',
-                                    "Disks",
+                                    "Disk Cleanup",
                                     Color(0xFF0178D6),
                                     Colors.white,
                                     100),

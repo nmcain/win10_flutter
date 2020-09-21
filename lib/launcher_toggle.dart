@@ -83,8 +83,11 @@ class LauncherToggleWidget extends StatelessWidget {
                               color: Colors.black, size: 20)),
                       new Padding(
                           padding: EdgeInsets.only(top: 0, left: 13),
-                          child: new Icon(Windows.uniE17D,
-                              color: Colors.black, size: 18)),
+                          child: new Image.asset(
+                            "lib/images/icons/v2/compiled/task-view.png",
+                            height: 17,
+                            width: 17,
+                          )),
                     ],
                   ),
                 )
